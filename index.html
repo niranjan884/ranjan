@@ -1,18 +1,135 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="index.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Love Calculator</title>
 
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#ff758c,#ff7eb3);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    width:320px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    animation:fadeIn 1s ease;
+}
+
+h1{
+    color:#ff4d6d;
+}
+
+input{
+    width:90%;
+    padding:10px;
+    margin:10px 0;
+    border-radius:8px;
+    border:1px solid #ccc;
+    font-size:15px;
+}
+
+button{
+    background:#ff4d6d;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:20px;
+    cursor:pointer;
+    font-size:16px;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#e63956;
+    transform:scale(1.05);
+}
+
+#result{
+    margin-top:20px;
+    font-size:18px;
+    color:#333;
+    animation:pop 0.5s ease;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(-20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes pop{
+    0%{transform:scale(0.5); opacity:0;}
+    100%{transform:scale(1); opacity:1;}
+}
+
+</style>
 </head>
+
 <body>
-    <div id="box1"></div>
-    <div id="box2"></div>
-    <div id="box3"></div>
-    <div class="car"><img src="car.jpg"></div>
-    <div class="road"></div>
-    
+
+<div class="container">
+
+<h1>❤️ Love Calculator</h1>
+
+<input type="text" id="name1" placeholder="Your name">
+<input type="text" id="name2" placeholder="Partner's name">
+
+<br>
+
+<button onclick="calculatelove()">Calculate Love</button>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+function calculatelove(){
+
+    var name1 = document.getElementById("name1").value;
+    var name2 = document.getElementById("name2").value;
+
+    if(name1 == "" || name2 == ""){
+        alert("Please enter both names");
+        return;
+    }
+
+    var lovescore = Math.floor(Math.random() * 100) + 1;
+
+    var message = "";
+
+    if(lovescore > 80){
+        message = "Perfect match ❤️";
+    }
+    else if(lovescore > 50){
+        message = "Good relationship 💕";
+    }
+    else{
+        message = "Need more understanding 🙂";
+    }
+
+    document.getElementById("result").innerHTML =
+    name1 + " ❤️ " + name2 +
+    "<br><b>Love Score: " + lovescore + "%</b><br>" +
+    message;
+
+}
+
+</script>
+
 </body>
 </html>

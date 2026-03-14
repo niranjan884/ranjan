@@ -1,4 +1,8 @@
-*{background-color: rgb(255, 255, 255);}
+*{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(255, 255, 255);
+}
 #box1{
     height: 250px;
     width: 1500px;
@@ -38,7 +42,7 @@ border-bottom-right-radius: 30px;
 }
 .car{
     border: 10px;
-    margin: 10px;
+    margin: 100px;
     position: absolute;
     bottom: 10px;
     animation: movecar 3s linear infinite;
